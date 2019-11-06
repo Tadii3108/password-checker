@@ -1,4 +1,5 @@
 // Tests
+
 let { passwordIsValid, passwordIsOk } = require('../src/passChecker.js');
 
 describe('Password is valid', function() {

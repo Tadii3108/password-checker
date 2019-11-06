@@ -49,7 +49,7 @@ function passwordIsOk(password) {
   }
 }
 
-passwordIsValid('Q12345qwerty!');
+passwordIsValid('Q12345qwerty');
 console.log(passwordIsOk('Q12345qwerty!'));
 
 module.exports = {
