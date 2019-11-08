@@ -5,28 +5,28 @@ function passwordIsValid(password) {
 
   try {
     if(password == "") {
-      throw('Password cannot be blank');
+      throw('Password should exist');
     }
     if(password != "") {
       if(password.length <= 8) {
-        throw('Password must be longer than 8 characters');
+        throw('Password should be longer than than 8 characters');
       }
     }
-    re = /[a-z]/;
-    if(!re.test(password)) {
-      throw('Password must contain atleast one lowercase letter');
+    re = /[a-z]/g;
+    if(password.match(re) == null) {
+      throw('Password should have at least one lowercase letter');
     }
-    re = /[A-Z]/;
-    if(!re.test(password)) {
-      throw('Password must contain atleast one uppercase letter');
+    re = /[A-Z]/g;
+    if(password.match(re) == null) {
+      throw('Password should have atleast one uppercase letter');
     }
-    re = /[0-9]/;
-    if(!re.test(password)) {
-      throw('Password must contain atleast one digit');
+    re = /[0-9]/g;
+    if(password.match(re) == null) {
+      throw('Password should have atleast one digit');
     }
-    re = /[!@#$&()-`./+,"]/;
-    if(!re.test(password)) {
-      throw('Password must contain atleast one special character');
+    re = /[!@#$%^&*+]/g;
+    if(password.match(re) == null) {
+      throw('Password should have atleast one special character');
     }
 
   } catch(error) {
@@ -37,22 +37,17 @@ function passwordIsValid(password) {
 function passwordIsOk(password) {
 
   if(password != '' && password.length > 8) {
-    if(password.match(/[a-z]/) != null || password.match(/[A-Z]/) != null || password.match(/[0-9]/) != null || password.match(/[!@#$^&*()`{}+_%'"]/) != null) {
-
+    if(password.match(/[a-z]/g) != null || password.match(/[A-Z]/g) != null || password.match(/[0-9]/g) != null || password.match(/[!@#$%^&*+]/g) != null) {
       return true;
-
-    } else {
-
-      return false;
-
     }
   }
+  return false;
 }
 
-passwordIsValid('Q12345qwerty');
-console.log(passwordIsOk('Q12345qwerty!'));
+passwordIsValid('Qw12345hg6*');
+console.log(passwordIsOk('t@dsMan1a'));
 
 module.exports = {
   passwordIsValid,
-  passwordIsOk
+  passwordIsOk,
 }

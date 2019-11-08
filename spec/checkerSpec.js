@@ -8,20 +8,20 @@ describe('Password is valid', function() {
   it('should exist', function() {
     expect(password).toBeTruthy();
   });
-  it('should consist of more than 8 characters', function() {
+  it('should be longer than 8 characters', function() {
     expect(password.length).toBeGreaterThan(8);
   });
-  it('should contain atleast one lowercase letter', function() {
+  it('should have atleast one lowercase letter', function() {
     expect(password).toMatch(/[a-z]/);
   });
-  it('should contain atleast one uppercase letter', function() {
+  it('should have atleast one uppercase letter', function() {
     expect(password).toMatch(/[A-Z]/);
   });
-  it('should contain atleast one digit', function() {
+  it('should have atleast one digit', function() {
     expect(password).toMatch(/[0-9]/);
   });
-  it('should contain atleast one special character', function() {
-    expect(password).toMatch(/[!@#$^&*()`{}+_%'"]/);
+  it('should have atleast one special character', function() {
+    expect(password).toMatch(/[!@#$%^&*+]/);
   });
 });
 
@@ -31,10 +31,10 @@ describe('Password is ok', function() {
   it('should exist', function() {
     expect(password).toBeTruthy();
   });
-  it('should consist of more than 8 characters', function() {
+  it('should be longer than 8 characters', function() {
     expect(password.length).toBeGreaterThan(8);
   });
-  it('should contain atleast one digit', function() {
+  it('should have atleast one digit', function() {
     expect(password).toMatch(/[0-9]/);
   });
 });
